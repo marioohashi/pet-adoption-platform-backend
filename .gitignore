@@ -1,5 +1,10 @@
-node_modules
+node_modules/
 .env
 dist/
 build/
-/src/generated/prisma
+coverage/
+*.log
+
+# Prisma
+/prisma/migrations/
+/src/generated/prisma/
