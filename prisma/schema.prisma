@@ -1,0 +1,89 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  phone     String?
+  address   String?
+  role      String   // adopter | donor | ngo
+  createdAt DateTime @default(now())
+
+  animals   Animal[]     @relation("UserAnimals")
+  messages  Message[]    @relation("UserMessages")
+  adoptions Adoption[]   @relation("UserAdoptions")
+}
+
+model NGO {
+  id        String   @id @default(uuid())
+  name      String
+  mission   String?
+  history   String?
+  contact   String?
+  createdAt DateTime @default(now())
+
+  animals   Animal[]
+  events    Event[]
+}
+
+model Animal {
+  id          String   @id @default(uuid())
+  name        String
+  age         Int
+  species     String   // dog | cat
+  breed       String?
+  size        String?
+  behavior    String?
+  description String?
+  photos      String[] // URLs
+  createdAt   DateTime @default(now())
+
+  ownerId     String?
+  owner       User?     @relation("UserAnimals", fields: [ownerId], references: [id])
+
+  ngoId       String?
+  ngo         NGO?      @relation(fields: [ngoId], references: [id])
+
+  adoptions   Adoption[]
+}
+
+model Adoption {
+  id        String   @id @default(uuid())
+  status    String   // pending | approved | rejected
+  createdAt DateTime @default(now())
+
+  userId    String
+  user      User     @relation("UserAdoptions", fields: [userId], references: [id])
+
+  animalId  String
+  animal    Animal   @relation(fields: [animalId], references: [id])
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  content   String
+  createdAt DateTime @default(now())
+
+  fromUserId String
+  toUserId   String
+
+  fromUser   User @relation("UserMessages", fields: [fromUserId], references: [id])
+  toUser     User @relation("UserMessages", fields: [toUserId], references: [id])
+}
+
+model Event {
+  id        String   @id @default(uuid())
+  title     String
+  description String?
+  date      DateTime
+
+  ngoId     String
+  ngo       NGO @relation(fields: [ngoId], references: [id])
+}

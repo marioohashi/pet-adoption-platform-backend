@@ -1,0 +1,40 @@
+{
+  "name": "pet-adoption-platform-backend",
+  "version": "1.0.0",
+  "description": "Backend service for the Responsible Pet Adoption Platform — a system designed to connect NGOs, donors, and adopters through a secure and transparent adoption workflow.   Built with **Node.js, Express, TypeScript, Zod, JWT, PostgreSQL**, and optional **Prisma ORM**.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marioohashi/pet-adoption-platform-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marioohashi/pet-adoption-platform-backend/issues"
+  },
+  "homepage": "https://github.com/marioohashi/pet-adoption-platform-backend#readme",
+  "dependencies": {
+    "@prisma/client": "^7.9.1",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^4.22.2",
+    "jsonwebtoken": "^9.0.3",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^26.1.2",
+    "prisma": "^7.9.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
+  }
+}
