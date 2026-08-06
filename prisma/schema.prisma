@@ -16,9 +16,10 @@ model User {
   role      String   // adopter | donor | ngo
   createdAt DateTime @default(now())
 
-  animals   Animal[]     @relation("UserAnimals")
-  messages  Message[]    @relation("UserMessages")
-  adoptions Adoption[]   @relation("UserAdoptions")
+  animals          Animal[]     @relation("UserAnimals")
+  messagesSent     Message[]    @relation("SentMessages")
+  messagesReceived Message[]    @relation("ReceivedMessages")
+  adoptions        Adoption[]   @relation("UserAdoptions")
 }
 
 model NGO {
@@ -74,8 +75,8 @@ model Message {
   fromUserId String
   toUserId   String
 
-  fromUser   User @relation("UserMessages", fields: [fromUserId], references: [id])
-  toUser     User @relation("UserMessages", fields: [toUserId], references: [id])
+  fromUser   User @relation("SentMessages", fields: [fromUserId], references: [id])
+  toUser     User @relation("ReceivedMessages", fields: [toUserId], references: [id])
 }
 
 model Event {
