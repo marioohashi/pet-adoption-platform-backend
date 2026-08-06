@@ -45,6 +45,7 @@ model Animal {
   description String?
   photos      String[] // URLs
   createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
   ownerId     String?
   owner       User?     @relation("UserAnimals", fields: [ownerId], references: [id])
