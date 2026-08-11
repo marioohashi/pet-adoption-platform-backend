@@ -7,85 +7,33 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(uuid())
+  id        String    @id @default(uuid())
   name      String
-  email     String   @unique
+  email     String    @unique
   password  String
   phone     String?
-  address   String?
-  role      String   // adopter | donor | ngo
-  createdAt DateTime @default(now())
-
-  animals          Animal[]     @relation("UserAnimals")
-  messagesSent     Message[]    @relation("SentMessages")
-  messagesReceived Message[]    @relation("ReceivedMessages")
-  adoptions        Adoption[]   @relation("UserAdoptions")
-}
-
-model NGO {
-  id        String   @id @default(uuid())
-  name      String
-  mission   String?
-  history   String?
-  contact   String?
-  createdAt DateTime @default(now())
-
+  createdAt DateTime  @default(now())
+  avatar    String?
+  bio       String?
+  city      String?
+  state     String?
   animals   Animal[]
-  events    Event[]
+  updatedAt DateTime  @updatedAt
 }
 
 model Animal {
   id          String   @id @default(uuid())
   name        String
-  age         Int
-  species     String   // dog | cat
+  species     String
   breed       String?
+  age         Int?
   size        String?
-  behavior    String?
+  sex         String?
   description String?
-  photos      String[] // URLs
+  status      String   @default("available")
+  photo       String?
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-
-  ownerId     String?
-  owner       User?     @relation("UserAnimals", fields: [ownerId], references: [id])
-
-  ngoId       String?
-  ngo         NGO?      @relation(fields: [ngoId], references: [id])
-
-  adoptions   Adoption[]
-}
-
-model Adoption {
-  id        String   @id @default(uuid())
-  status    String   // pending | approved | rejected
-  createdAt DateTime @default(now())
-
-  userId    String
-  user      User     @relation("UserAdoptions", fields: [userId], references: [id])
-
-  animalId  String
-  animal    Animal   @relation(fields: [animalId], references: [id])
-}
-
-model Message {
-  id        String   @id @default(uuid())
-  content   String
-  createdAt DateTime @default(now())
-
-  fromUserId String
-  toUserId   String
-
-  fromUser   User @relation("SentMessages", fields: [fromUserId], references: [id])
-  toUser     User @relation("ReceivedMessages", fields: [toUserId], references: [id])
-}
-
-model Event {
-  id        String   @id @default(uuid())
-  title     String
-  description String?
-  date      DateTime
-
-  ngoId     String
-  ngo       NGO @relation(fields: [ngoId], references: [id])
 }

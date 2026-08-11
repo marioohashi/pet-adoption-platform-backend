@@ -15,13 +15,13 @@ It handles authentication, user roles, animal management, NGO operations, messag
 ## 🧱 Tech Stack
 
 - Node.js  
-- Express  
-- TypeScript  
-- Zod (schema validation)  
-- JWT Authentication  
-- PostgreSQL  
-- Prisma ORM (optional)  
-- Multer (file uploads)  
+- Express
+- TypeScript
+- Zod (schema validation)
+- JWT Authentication
+- PostgreSQL
+- Prisma ORM
+- Multer (file uploads)
 - Swagger (API documentation)
 
 ---
@@ -29,19 +29,13 @@ It handles authentication, user roles, animal management, NGO operations, messag
 ## 📌 Core Features
 
 ### 🔐 Authentication & Authorization
-- Secure JWT-based login  
-- Role-based access (adopter, donor, NGO)  
+- Secure JWT-based login
 - Zod validation for all payloads
 
 ### 🐶 Animal Management
-- CRUD operations for pets  
+- CRUD operations for pets
 - Upload photos/videos  
 - Status tracking (available, in process, adopted)
-
-### 🏢 NGO Management
-- Register NGOs with mission, history, contact info  
-- Publish animals  
-- Manage events and campaigns
 
 ### 🔎 Search & Filters
 - Species, breed, age, size, behavior, location  
@@ -49,7 +43,7 @@ It handles authentication, user roles, animal management, NGO operations, messag
 
 ### 📨 Adoption Workflow
 - Express interest in a pet  
-- NGO receives notification  
+- User receives notification  
 - Secure messaging  
 - Visit scheduling  
 - Adoption approval
@@ -72,21 +66,10 @@ utils/
 ## 🔌 API Endpoints (Summary)
 
 - `/auth` — login, register  
-- `/users` — user profiles  
-- `/ongs` — NGO management  
+- `/user` — user profile
 - `/animals` — pet CRUD  
 - `/adoptions` — adoption workflow  
-- `/messages` — secure chat  
-- `/events` — NGO events & campaigns
-
----
-
-## 🛠️ Setup
-
-1. Install dependencies  
-2. Configure `.env`  
-3. Run database migrations  
-4. Start the server
+- `/messages` — secure chat
 
 ---
 

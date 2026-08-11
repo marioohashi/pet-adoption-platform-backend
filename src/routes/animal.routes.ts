@@ -4,7 +4,7 @@ import {
   getAnimals,
   getAnimalById,
   updateAnimal,
-  deleteAnimal
+  deleteAnimal,
 } from "../controllers/animal.controller";
 
 const router = Router();
