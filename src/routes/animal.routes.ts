@@ -1,18 +1,13 @@
 import { Router } from "express";
-import {
-  createAnimal,
-  getAnimals,
-  getAnimalById,
-  updateAnimal,
-  deleteAnimal,
-} from "../controllers/animal.controller";
+import { AnimalController } from "../controllers/animal.controller";
 
 const router = Router();
+const controller = new AnimalController();
 
-router.post("/", createAnimal);
-router.get("/", getAnimals);
-router.get("/:id", getAnimalById);
-router.put("/:id", updateAnimal);
-router.delete("/:id", deleteAnimal);
+router.post("/", controller.create);
+router.get("/", controller.getAll);
+router.get("/:id", controller.getById);
+router.put("/:id", controller.update);
+router.delete("/:id", controller.delete);
 
 export default router;
