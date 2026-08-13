@@ -82,5 +82,5 @@ MIT License
 ## 📫 Contact
 
 **Mario Ohashi**
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/marioohashi)
+[![https://www.linkedin.com/in/marioohashi](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/marioohashi)
 
