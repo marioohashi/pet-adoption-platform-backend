@@ -1,16 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "Node16",
-    "moduleResolution": "node16",
-    "rootDir": ".",
-    "outDir": "./dist",
-    "esModuleInterop": true,
-    "strict": true,
-    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "esnext",
     "types": [],
-    "allowSyntheticDefaultImports": true,
- 
+
     // Other Outputs
     "sourceMap": true,
     "declaration": true,
@@ -18,14 +12,15 @@
 
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
+    "exactOptionalPropertyTypes": false,
 
-     // Recommended Options
+    // Recommended Options
+    "strict": true,
     "jsx": "react-jsx",
     "verbatimModuleSyntax": false,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force"
-  },
-  "include": ["src"]
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+  }
 }

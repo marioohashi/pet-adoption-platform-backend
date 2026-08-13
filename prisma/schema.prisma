@@ -7,18 +7,18 @@ datasource db {
 }
 
 model User {
-  id        String    @id @default(uuid())
+  id        String   @id @default(uuid())
   name      String
-  email     String    @unique
+  email     String   @unique
   password  String
   phone     String?
-  createdAt DateTime  @default(now())
+  createdAt DateTime @default(now())
   avatar    String?
   bio       String?
   city      String?
   state     String?
+  updatedAt DateTime @updatedAt
   animals   Animal[]
-  updatedAt DateTime  @updatedAt
 }
 
 model Animal {
@@ -32,8 +32,8 @@ model Animal {
   description String?
   status      String   @default("available")
   photo       String?
-  user        User     @relation(fields: [userId], references: [id])
   userId      String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  user        User     @relation(fields: [userId], references: [id])
 }

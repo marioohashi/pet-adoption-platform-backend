@@ -1,0 +1,22 @@
+meta {
+  name: Create User
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3000/api/v1/users
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Mario Ohashi",
+    "email": "mario.test@email.com",
+    "password": "senhaSegura123",
+    "phone": "41999999999",
+    "city": "Curitiba",
+    "state": "PR"
+  }
+}
