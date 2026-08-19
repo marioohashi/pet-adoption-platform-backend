@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "tsx watch src/server.ts"
   },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/marioohashi/pet-adoption-platform-backend.git"
@@ -19,6 +22,7 @@
   },
   "homepage": "https://github.com/marioohashi/pet-adoption-platform-backend#readme",
   "dependencies": {
+    "@faker-js/faker": "^10.6.0",
     "@prisma/adapter-pg": "^7.9.1",
     "@prisma/client": "^7.9.1",
     "bcryptjs": "^3.0.3",
@@ -34,6 +38,7 @@
     "@types/bcryptjs": "^2.4.6",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
+    "@types/faker": "^6.6.8",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^26.2.0",
     "@types/pg": "^8.21.0",

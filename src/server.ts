@@ -1,4 +1,5 @@
 import express, { Request, Response, NextFunction } from "express";
+import cors from 'cors';
 import helmet from "helmet";
 import dotenv from "dotenv";
 import animalRoutes from "./routes/animal.route";
@@ -12,6 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(helmet()); 
+app.use(cors())
 app.use(express.json({ limit: "10mb" }));
 
 app.get("/health", (_req: Request, res: Response) => {
